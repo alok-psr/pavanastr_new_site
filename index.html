@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavanastr Technologies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Intro loader -->
+<div id="intro">
+  <div class="intro-logo">
+    <div class="intro-logo-mark">
+      <img src="img/logo.png" alt="Pavanastr Technologies Logo" class="intro-logo-img">
+    </div>
+    <div class="intro-name" id="introName">PAVANASTR</div>
+    <div class="intro-tagline" id="introTagline">Defence · UAV · Deep Tech</div>
+    <div class="intro-line" id="introLine"></div>
+  </div>
+</div>
+
+<!-- Header -->
+<header id="header">
+  <a href="#" class="header-logo">
+    <div class="header-logo-mark">
+      <img src="img/logo.png" alt="Pavanastr Technologies Logo" class="header-logo-img">
+    </div>
+    <span class="header-logo-text">PAVANASTR</span>
+  </a>
+  <nav>
+    <a href="products.html">Products</a>
+    <a href="#field">Operations</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-video-wrap">
+    <!-- Hero background video. Replace src with your actual drone footage file -->
+    <video
+      class="hero-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="img/hero-poster.jpg"
+      src="img/hero_1.mp4"
+      aria-hidden="true">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow" id="heroEyebrow">
+      UAV Systems &amp; Defence Technology
+    </div>
+    <h1 class="hero-headline" id="heroHeadline">
+      <span class="word">Precision</span><br>
+      <span class="word">Built for</span><br>
+      <span class="word" style="color:var(--brass-bright)">the Field.</span>
+    </h1>
+    <p class="hero-sub" id="heroSub">
+      REVOLUTIONAISING AERIAL DEFENCE TECHNOLOGY WITH UN-ARMED & ARMED UAV
+    </p>
+    <div class="hero-stats" id="heroStats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">12<span>km</span></div>
+        <div class="hero-stat-label">Operational Range</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">98<span>%</span></div>
+        <div class="hero-stat-label">Mission Success</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">6<span>h</span></div>
+        <div class="hero-stat-label">Endurance</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-meta" id="heroMeta">
+    <div class="hero-meta-item">Coordinates</div>
+    <div class="hero-meta-val" style="font-family:'Space Mono',monospace;font-size:0.9rem;">28.4595° N</div>
+    <div class="hero-meta-val" style="font-family:'Space Mono',monospace;font-size:0.9rem;">77.0266° E</div>
+    <div style="width:1px;height:40px;background:rgba(184,150,62,0.3);margin:0.5rem 0 0.5rem auto;"></div>
+    <div class="hero-meta-item">Gurgaon, IN</div>
+  </div>
+
+  <div class="scroll-indicator" id="scrollIndicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Products / Bento -->
+<section id="products">
+  <div class="section-eyebrow">Our Systems</div>
+  <h2 class="section-headline">Engineered for dominance. Built to last.</h2>
+  <div class="bento-grid">
+
+    <div class="bento-card">
+      <!-- Product image: replace src with actual product photo -->
+      <img
+        src="img/product-1.jpg"
+        alt="PV-X1 Tactical Surveillance UAV"
+        class="bento-card-img">
+      <div class="bento-card-inner">
+        <div class="bento-label">Flagship System</div>
+        <div class="bento-name">GANDIV-I</div>
+        <div class="bento-desc">Long-endurance fixed-wing UAV built for persistent ISR missions across contested terrain. AI-assisted target recognition onboard.</div>
+        <div class="bento-tag">ISR · Tactical · Long Range</div>
+      </div>
+    </div>
+
+    <div class="bento-card">
+      <img
+        src="img/product-2.jpg"
+        alt="PV-S3 Loitering Munition"
+        class="bento-card-img">
+      <div class="bento-card-inner">
+        <div class="bento-label">Combat</div>
+        <div class="bento-name">GANDIV-II</div>
+        <div class="bento-desc">Precision strike system with 45-min loiter time.</div>
+        <div class="bento-tag">Strike · Precision</div>
+      </div>
+    </div>
+
+    <div class="bento-card">
+      <img
+        src="img/product-3.jpg"
+        alt="PV-J2 Electronic Warfare Platform"
+        class="bento-card-img">
+      <div class="bento-card-inner">
+        <div class="bento-label">Electronic</div>
+        <div class="bento-name">GANDIV-III</div>
+        <div class="bento-desc">Electronic warfare and jamming drone for spectrum dominance.</div>
+        <div class="bento-tag">EW · Spectrum</div>
+      </div>
+    </div>
+
+    <div class="bento-card">
+      <img
+        src="img/product-4.jpg"
+        alt="PV-N Swarm UAV Series"
+        class="bento-card-img">
+      <div class="bento-card-inner">
+        <div class="bento-label">Swarm</div>
+        <div class="bento-name">Nano Drone</div>
+        <div class="bento-tag">Autonomous · Swarm</div>
+      </div>
+    </div>
+
+    <div class="bento-card">
+      <img
+        src="img/product-5.jpg"
+        alt="PV-L1 Cargo Logistics UAV"
+        class="bento-card-img">
+      <div class="bento-card-inner">
+        <div class="bento-label">Logistics</div>
+        <div class="bento-name">GRENADE DROPPER</div>
+        <div class="bento-tag">Supply · Logistics</div>
+      </div>
+    </div>
+
+    <div class="bento-card">
+      <div class="bento-card-bg bg-drone-6"></div>
+      <div class="bento-card-inner">
+        <div class="bento-label">Anti-UAS</div>
+        <div class="bento-name">GANDIV-IV</div>
+        <div class="bento-tag">Defence · Counter-UAS</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Field / Carousel -->
+<section id="field">
+  <div class="field-header">
+    <div>
+      <div class="section-eyebrow" style="color:var(--brass)">Field Operations</div>
+      <h2 class="field-headline">Proven in extreme conditions.</h2>
+    </div>
+    <p class="field-desc">
+      From high-altitude mountain passes to dense urban environments — Pavanastr UAVs are tested and validated across India's most demanding operational theatres.
+    </p>
+  </div>
+
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- Slide 1 -->
+      <div class="carousel-slide">
+        <img src="img/slider1.jpg" alt="High-altitude ISR trials in Ladakh" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Ladakh, 2024</div>
+          <div class="slide-caption-text">High-altitude ISR trials at 5,400m ASL</div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-slide">
+        <img src="img/slider2.jpg" alt="Desert endurance testing in Rajasthan" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Rajasthan, 2024</div>
+          <div class="slide-caption-text">Desert endurance — 52°C operational validation</div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-slide">
+        <img src="img/slider3.jpg" alt="Dense forest relay comms operation in Northeast India" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Northeast, 2023</div>
+          <div class="slide-caption-text">Dense forest penetration and relay comms</div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="carousel-slide">
+        <img src="img/slider4.jpg" alt="Urban perimeter security deployment" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Urban, 2024</div>
+          <div class="slide-caption-text">City-scale perimeter security deployment</div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="carousel-slide">
+        <img src="img/slider5.jpg" alt="Swarm coordination trials" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Pokhran, 2024</div>
+          <div class="slide-caption-text">Swarm coordination — 12-unit live exercise</div>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="carousel-slide">
+        <img src="img/slider6.jpg" alt="Maritime surveillance mission" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Coastal, 2023</div>
+          <div class="slide-caption-text">Maritime border surveillance operations</div>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="carousel-slide">
+        <img src="img/slider7.jpg" alt="Night operations with thermal imaging" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Night Ops, 2024</div>
+          <div class="slide-caption-text">Thermal imaging in zero-light conditions</div>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="carousel-slide">
+        <img src="img/slider8.jpg" alt="Logistics drone delivery trial" class="carousel-slide-img">
+        <div class="slide-caption">
+          <div class="slide-caption-label">Supply Chain, 2024</div>
+          <div class="slide-caption-text">Last-mile logistics in forward operating areas</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="prevBtn" aria-label="Previous">←</button>
+    <button class="carousel-btn" id="nextBtn" aria-label="Next">→</button>
+    <div class="carousel-counter" id="carouselCounter">01 / 08</div>
+    <div class="carousel-progress">
+      <div class="carousel-progress-fill" id="carouselProgress" style="width:25%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews marquee -->
+<section id="reviews">
+  <div class="reviews-header">
+    <div class="section-eyebrow" style="color:var(--brass)">Trusted By</div>
+    <h2 class="reviews-headline">Our Partners</h2>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack1">
+      <div class="review-card">
+        <div class="review-stars">
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+        </div>
+        <p class="review-text">"The GANDIV-III performed flawlessly across our 14-day evaluation. The onboard AI recognition system reduced operator workload by nearly 60%."</p>
+        <div class="review-author">
+          <div class="review-avatar">AD</div>
+          <div>
+            <div class="review-name">Adani Defence Systems & Technologies</div>
+            <div class="review-org">Strategic Partnership</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+        </div>
+        <p class="review-text">"Exceptional build quality and after-deployment support. Pavanastr's team understood our mission constraints from day one."</p>
+        <div class="review-author">
+          <div class="review-avatar">MI</div>
+          <div>
+            <div class="review-name">Munitions India Limited</div>
+            <div class="review-org">Procurement Partner</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+        </div>
+        <p class="review-text">"Pavanastr delivered ahead of schedule and exceeded every technical specification. That's rare in this industry."</p>
+        <div class="review-author">
+          <div class="review-avatar">MN</div>
+          <div>
+            <div class="review-name">M. Nair</div>
+            <div class="review-org">CISF — Special Operations</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+        </div>
+        <p class="review-text">"The EW platform gave us a decisive edge during live exercises. Integration with existing ground systems was seamless."</p>
+        <div class="review-author">
+          <div class="review-avatar">SK</div>
+          <div>
+            <div class="review-name">S. Krishnamurthy</div>
+            <div class="review-org">Naval Systems — EW Division</div>
+          </div>
+        </div>
+      </div>
+      <!-- duplicates for seamless loop -->
+      <div class="review-card">
+        <div class="review-stars">
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+        </div>
+        <p class="review-text">"The GANDIV-III performed flawlessly across our 14-day evaluation. The onboard AI recognition system reduced operator workload by nearly 60%."</p>
+        <div class="review-author">
+          <div class="review-avatar">AD</div>
+          <div>
+            <div class="review-name">Adani Defence Systems & Technologies</div>
+            <div class="review-org">Strategic Partnership</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+          <svg class="review-star" viewBox="0 0 14 14"><polygon points="7,1 8.8,5.3 13.5,5.6 10,8.7 11.1,13.3 7,10.8 2.9,13.3 4,8.7 0.5,5.6 5.2,5.3" fill="#B8963E"/></svg>
+        </div>
+        <p class="review-text">"Exceptional build quality and after-deployment support. Pavanastr's team understood our mission constraints from day one."</p>
+        <div class="review-author">
+          <div class="review-avatar">MI</div>
+          <div>
+            <div class="review-name">Munitions India Limited</div>
+            <div class="review-org">Procurement Partner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logo-strip">
+    <div class="logo-strip-label">Partners</div>
+    <div class="logo-strip-items">
+      <div class="logo-item">DRDO</div>
+      <div class="logo-item">HAL</div>
+      <div class="logo-item">BEL</div>
+      <div class="logo-item">Indian Army</div>
+      <div class="logo-item">IAF</div>
+      <div class="logo-item">CISF</div>
+      <div class="logo-item">MoD</div>
+      <div class="logo-item">ISRO</div>
+      <!-- duplicate -->
+      <div class="logo-item">DRDO</div>
+      <div class="logo-item">HAL</div>
+      <div class="logo-item">BEL</div>
+      <div class="logo-item">Indian Army</div>
+      <div class="logo-item">IAF</div>
+      <div class="logo-item">CISF</div>
+      <div class="logo-item">MoD</div>
+      <div class="logo-item">ISRO</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">PAVANASTR</div>
+      <p class="footer-brand-desc">
+        REVOLUTIONAISING AERIAL DEFENCE TECHNOLOGY WITH UN-ARMED & ARMED UAV
+      </p>
+      <div style="margin-top:2rem;display:flex;gap:1rem;">
+        <a href="#" style="width:36px;height:36px;border:1px solid rgba(184,150,62,0.3);display:flex;align-items:center;justify-content:center;color:var(--brass);text-decoration:none;font-size:0.75rem;transition:all 0.2s;" onmouseenter="this.style.background='var(--brass)';this.style.color='var(--black)'" onmouseleave="this.style.background='transparent';this.style.color='var(--brass)'">in</a>
+        <a href="#" style="width:36px;height:36px;border:1px solid rgba(184,150,62,0.3);display:flex;align-items:center;justify-content:center;color:var(--brass);text-decoration:none;font-size:0.75rem;transition:all 0.2s;" onmouseenter="this.style.background='var(--brass)';this.style.color='var(--black)'" onmouseleave="this.style.background='transparent';this.style.color='var(--brass)'">tw</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <ul class="footer-col-links">
+        <li><a href="products.html">GANDIV-I</a></li>
+        <li><a href="products.html">GANDIV-II</a></li>
+        <li><a href="products.html">GANDIV-III</a></li>
+        <li><a href="products.html">Nano Drone</a></li>
+        <li><a href="products.html">View All Systems</a></li>
+      </ul>
+    </div>
+    <!-- <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-col-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html#team">Leadership</a></li>
+        <li><a href="about.html#mission">Mission</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div> -->
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="contact.html">Get in Touch</a></li>
+        <li><a href="contact.html#partnerships">Partnerships</a></li>
+        <li><a href="contact.html#procurement">Procurement</a></li>
+        <li><a href="#">DGCA Compliance</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">© 2024 Pavanastr Technologies Pvt. Ltd. · All rights reserved</div>
+    <div class="footer-coords">28.4595° N, 77.0266° E · Gurgaon, Haryana</div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
