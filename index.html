@@ -16,6 +16,7 @@
 
 <!-- Intro loader -->
 <div id="intro">
+  
   <div class="intro-logo">
     <div class="intro-logo-mark">
       <img src="img/logo.png" alt="Pavanastr Technologies Logo" class="intro-logo-img">
@@ -24,22 +25,31 @@
     <div class="intro-tagline" id="introTagline">Defence · UAV · Deep Tech</div>
     <div class="intro-line" id="introLine"></div>
   </div>
-</div>
 
+</div>
 <!-- Header -->
+</div>
 <header id="header">
-  <a href="#" class="header-logo">
-    <div class="header-logo-mark">
-      <img src="img/logo.png" alt="Pavanastr Technologies Logo" class="header-logo-img">
-    </div>
-    <span class="header-logo-text">PAVANASTR</span>
-  </a>
-  <nav>
-    <a href="products.html">Products</a>
-    <a href="#field">Operations</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="nav-cta">Contact</a>
-  </nav>
+    <a href="#" class="header-logo">
+        <div class="header-logo-mark">
+            <img src="img/logo.png" alt="Pavanastr Technologies Logo" class="header-logo-img">
+        </div>
+        <span class="header-logo-text">PAVANASTR</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="navMenu" class="">
+        <a href="products.html">Products</a>
+        <a href="#field">Operations</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
 </header>
 
 <!-- Hero -->
@@ -53,7 +63,7 @@
       loop
       playsinline
       poster="img/hero-poster.jpg"
-      src="img/hero_1.mp4"
+      src="img/hero.mp4"
       aria-hidden="true">
     </video>
   </div>
@@ -61,7 +71,7 @@
   <div class="hero-grid-lines"></div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow" id="heroEyebrow">
+    <div class="hero-eyebrow" style="text-shadow: 0 0 10px black;" id="heroEyebrow">
       UAV Systems &amp; Defence Technology
     </div>
     <h1 class="hero-headline" id="heroHeadline">
@@ -88,16 +98,7 @@
     </div>
   </div>
 
-  <div class="hero-meta" id="heroMeta">
-    <div class="hero-meta-item">Coordinates</div>
-    <div class="hero-meta-val" style="font-family:'Space Mono',monospace;font-size:0.9rem;">28.4595° N</div>
-    <div class="hero-meta-val" style="font-family:'Space Mono',monospace;font-size:0.9rem;">77.0266° E</div>
-    <div style="width:1px;height:40px;background:rgba(184,150,62,0.3);margin:0.5rem 0 0.5rem auto;"></div>
-    <div class="hero-meta-item">Gurgaon, IN</div>
-  </div>
-
   <div class="scroll-indicator" id="scrollIndicator">
-    <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -399,7 +400,7 @@
     </div>
   </div>
 
-  <div class="logo-strip">
+  <!-- <div class="logo-strip">
     <div class="logo-strip-label">Partners</div>
     <div class="logo-strip-items">
       <div class="logo-item">DRDO</div>
@@ -409,17 +410,17 @@
       <div class="logo-item">IAF</div>
       <div class="logo-item">CISF</div>
       <div class="logo-item">MoD</div>
-      <div class="logo-item">ISRO</div>
+      <div class="logo-item">ISRO</div> -->
       <!-- duplicate -->
-      <div class="logo-item">DRDO</div>
+      <!-- <div class="logo-item">DRDO</div>
       <div class="logo-item">HAL</div>
       <div class="logo-item">BEL</div>
       <div class="logo-item">Indian Army</div>
       <div class="logo-item">IAF</div>
       <div class="logo-item">CISF</div>
       <div class="logo-item">MoD</div>
-      <div class="logo-item">ISRO</div>
-    </div>
+      <div class="logo-item">ISRO</div> 
+    </div>-->
   </div>
 </section>
 
@@ -462,7 +463,7 @@
         <li><a href="contact.html">Get in Touch</a></li>
         <li><a href="contact.html#partnerships">Partnerships</a></li>
         <li><a href="contact.html#procurement">Procurement</a></li>
-        <li><a href="#">DGCA Compliance</a></li>
+        <!-- <li><a href="#">DGCA Compliance</a></li> -->
       </ul>
     </div>
   </div>
@@ -471,7 +472,6 @@
     <div class="footer-coords">28.4595° N, 77.0266° E · Gurgaon, Haryana</div>
   </div>
 </footer>
-
 <script src="script.js" defer></script>
 </body>
 </html>

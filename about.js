@@ -6,6 +6,38 @@ function initializeElementStates() {
   gsap.set('#aboutSub', { opacity: 0 });
 }
 
+/* ── Hamburger menu ───────────────────────────────────── */
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu    = document.getElementById("navMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+
+  if (!menuToggle || !navMenu || !menuOverlay) return;
+
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    menuOverlay.classList.toggle("active");
+  });
+
+  menuOverlay.addEventListener("click", () => {
+    menuToggle.classList.remove("active");
+    navMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+  });
+
+  /* Close drawer when a nav link is clicked (mobile UX) */
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active");
+      navMenu.classList.remove("active");
+      menuOverlay.classList.remove("active");
+    });
+  });
+});
+
+
+
 /* Header fade in and scroll effect */
 function initHeader() {
   gsap.to('#header', { opacity: 1, duration: 0.6, ease: 'power2.out', delay: 0.1 });

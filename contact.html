@@ -16,18 +16,28 @@
 
 <!-- Header -->
 <header id="header">
-  <a href="index.html" class="header-logo">
-    <div class="header-logo-mark">
-      <img src="img/logo.png" alt="Pavanastr Technologies Logo" class="header-logo-img">
-    </div>
-    <span class="header-logo-text">PAVANASTR</span>
-  </a>
-  <nav>
-    <a href="index.html#products">Products</a>
-    <a href="index.html#field">Operations</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="nav-cta">Contact</a>
-  </nav>
+    <a href="index.html" class="header-logo">
+        <div class="header-logo-mark">
+          <a href="index.html">
+            <img src="img/logo.png" alt="Pavanastr Technologies Logo" class="header-logo-img">
+          </a>
+        </div>
+        <span class="header-logo-text">PAVANASTR</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="navMenu" class="">
+        <a href="products.html">Products</a>
+        <a href="#field">Operations</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
 </header>
 
 <!-- Contact Hero Section -->
@@ -120,7 +130,7 @@
 
     <!-- Contact Form -->
     <div class="contact-form-section">
-      <p class="section-label">SEND US A MESSAGE</p>
+      <p class="section-label ">SEND US A MESSAGE</p>
       <h2 class="section-heading">Quick Inquiry</h2>
       
       <form class="contact-form" id="contactForm">
@@ -189,7 +199,7 @@
     <div>
       <div class="footer-col-title">Company</div>
       <ul class="footer-col-links">
-        <li><a href="index.html#products">Products</a></li>
+        <li><a href="products.html">Products</a></li>
         <li><a href="index.html#field">Operations</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>

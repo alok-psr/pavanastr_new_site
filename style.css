@@ -66,6 +66,7 @@ body {
 }
 
 /* HEADER */
+
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -78,27 +79,37 @@ header {
   backdrop-filter: blur(0px);
   transition: backdrop-filter 0.4s, background 0.4s;
 }
+
 header.scrolled {
   background: rgba(245,240,232,0.92);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(184,150,62,0.25);
 }
+
 .header-logo {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
 }
+
 .header-logo-mark {
   width: 36px; height: 36px;
 }
+
 .header-logo-text {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--black);
   letter-spacing: -0.01em;
 }
-nav { display: flex; align-items: center; gap: 2.5rem; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
 nav a {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
@@ -109,6 +120,7 @@ nav a {
   transition: color 0.2s;
   position: relative;
 }
+
 nav a::after {
   content: '';
   position: absolute;
@@ -117,8 +129,10 @@ nav a::after {
   background: var(--brass);
   transition: width 0.3s ease;
 }
+
 nav a:hover { color: var(--cream); }
 nav a:hover::after { width: 100%; }
+
 .nav-cta {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
@@ -130,9 +144,65 @@ nav a:hover::after { width: 100%; }
   text-decoration: none;
   transition: opacity 0.2s !important;
 }
+
 .nav-cta:hover { opacity: 0.85 !important; }
 .nav-cta::after { display: none !important; }
 
+/* Hamburger Button */
+.menu-toggle {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 50%;
+  position: relative;
+  margin-left: auto;
+  margin-right: 20px;  
+  z-index: 110;
+  
+  /* Force hide on desktop */
+  display: none;
+}
+
+.menu-toggle span {
+  display: block;           /* critical — not position:absolute yet */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--black);
+  transition: all 0.35s ease;
+}
+
+.menu-toggle span:nth-child(1) { top: 11px; }
+.menu-toggle span:nth-child(2) { top: 19px; }
+.menu-toggle span:nth-child(3) { top: 27px; }
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateX(-50%) translateY(8px) rotate(45deg);
+  background: var(--cream);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-50%);
+  background: var(--cream);
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateX(-50%) translateY(-8px) rotate(-45deg);
+  background: var(--cream);
+}
+
+@media (max-width: 768px) {
+  
+  .menu-toggle {
+    display: block !important;   /* beat any GSAP or specificity */
+  }
+}
 /* HERO */
 #hero {
   position: relative;
@@ -745,7 +815,7 @@ footer {
 .hero-stat {}
 .hero-stat-val {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 80ss0;
   letter-spacing: -0.03em;
   color: rgb(254, 252, 248);
   line-height: 1;
@@ -769,7 +839,6 @@ footer {
 /* Responsive */
 @media (max-width: 900px) {
   header { padding: 1.5rem 2rem; }
-  nav { display: none; }
   #hero { padding: 0 2rem 4rem; }
   #products, #field, #reviews .reviews-header { padding: 4rem 2rem; }
   .bento-grid { grid-template-columns: 1fr; }
@@ -778,6 +847,69 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; }
   footer { padding: 3rem 2rem 2rem; }
 }
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 1.5rem;
+    opacity: 1 !important;
+    /* backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(184, 150, 62, 0.25); */
+  }
+
+  .menu-toggle {
+    display: block !important;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(300px, 80vw);
+    height: 100vh;
+    display: flex !important;       /* override the 900px display:none */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(15, 15, 15, 0.96);
+    transition: right 0.4s cubic-bezier(.77, 0, .18, 1);
+    z-index: 105;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75) !important;
+  }
+
+  nav a:hover {
+    color: white !important;
+  }
+
+  .nav-cta {
+    margin-top: 1rem;
+    color: var(--black) !important;
+  }
+}
+
+/* Desktop — pin nav to top right, visually inside header */
+@media (min-width: 769px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: 4rem;
+    height: 80px; /* match your header height */
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    z-index: 101; /* above header's z-index: 100 */
+    background: transparent;
+  }
+}
+
 /* ── Media placeholders ─────────────────────────────── */
 
 /* Hero background video */
@@ -839,3 +971,4 @@ footer {
   /* On scrolled header (light frosted bg), logo should be dark — no filter needed.
      If your logo is light/white on transparent, add: filter: brightness(0); */
 }
+
