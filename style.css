@@ -864,7 +864,8 @@ footer {
     position: fixed;
     top: 0;
     right: -100%;
-    width: min(300px, 80vw);
+    /* width: min(300px, 80vw); */
+    width: 100vw;
     height: 100vh;
     display: flex !important;       /* override the 900px display:none */
     flex-direction: column;
@@ -882,6 +883,8 @@ footer {
 
   nav a {
     font-size: 0.85rem;
+    width:100vw;
+    text-align: center;
     color: rgba(255, 255, 255, 0.75) !important;
   }
 

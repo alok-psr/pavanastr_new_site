@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     menuOverlay.classList.remove("active");
   });
 
-  /* Close drawer when a nav link is clicked (mobile UX) */
   navMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       menuToggle.classList.remove("active");
@@ -30,14 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* ── Intro animation ──────────────────────────────────── */
+/* ── Intro animation (~1.5s total) ───────────────────── */
 const tl = gsap.timeline({
   onComplete: () => {
     gsap.to('#intro', {
       clipPath: 'inset(0 0 100% 0)',
-      duration: 0.8,
+      duration: 0.55,         // wipe-out: 0.35s
       ease: 'power3.inOut',
-      delay: 0.3,
+      delay: 0.05,
       onComplete: () => {
         document.getElementById('intro').style.display = 'none';
         playHeroIn();
@@ -46,23 +45,22 @@ const tl = gsap.timeline({
   }
 });
 
-tl.to('.intro-logo-mark', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' })
-  .to('#introName',    { opacity: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2')
-  .to('#introTagline', { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.1')
-  .to('#introLine',    { width: '120px', duration: 0.6, ease: 'power2.out' }, '-=0.2')
-  .to({}, { duration: 0.8 });
+// Total timeline: ~1.1s, then 0.05 delay + 0.35s wipe = ~1.5s
+tl.to('.intro-logo-mark', { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' })
+  .to('#introName',        { opacity: 1, duration: 0.2,  ease: 'power2.out' }, '-=0.1')
+  .to('#introTagline',     { opacity: 1, duration: 0.2,  ease: 'power2.out' }, '-=0.05')
+  .to('#introLine',        { width: '120px', duration: 0.35, ease: 'power2.out' }, '-=0.1')
+  .to({}, { duration: 0.5 });  // brief hold before wipe
 
 function playHeroIn() {
   const isMobile = window.innerWidth <= 768;
 
-  /* On mobile the header is already visible via CSS (opacity:1 !important).
-     On desktop GSAP fades it in. Either way, make sure it's visible. */
   gsap.set('#header', { opacity: 1 });
   if (!isMobile) {
-    gsap.from('#header', { opacity: 0, duration: 0.6, ease: 'power2.out' });
+    gsap.from('#header', { opacity: 0, duration: 0.3, ease: 'power2.out' });
   }
 
-  gsap.to('#heroEyebrow', { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', delay: 0.1 });
+  gsap.to('#heroEyebrow', { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out', delay: 0.1 });
 
   const words = document.querySelectorAll('#heroHeadline .word');
   words.forEach((word, i) => {
@@ -72,17 +70,17 @@ function playHeroIn() {
       .join('');
     gsap.to(word.querySelectorAll('.char'), {
       y: 0,
-      duration: 0.8,
+      duration: 0.45,
       ease: 'power3.out',
       stagger: 0.03,
       delay: 0.2 + i * 0.1
     });
   });
 
-  gsap.to('#heroSub',        { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.7 });
-  gsap.to('#heroStats',      { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.9 });
-  gsap.to('#heroMeta',       { opacity: 1, duration: 0.6, ease: 'power2.out', delay: 1.0 });
-  gsap.to('#scrollIndicator',{ opacity: 1, duration: 0.5, delay: 1.3 });
+  gsap.to('#heroSub',         { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', delay: 0.7 });
+  gsap.to('#heroStats',       { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', delay: 0.9 });
+  gsap.to('#heroMeta',        { opacity: 1, duration: 0.45, ease: 'power2.out', delay: 1.0 });
+  gsap.to('#scrollIndicator', { opacity: 1, duration: 0.45, delay: 1.3 });
 }
 
 /* ── Header scroll effect ─────────────────────────────── */
@@ -103,7 +101,7 @@ gsap.utils.toArray('.bento-card').forEach((card, i) => {
     onEnter: () => {
       gsap.to(card, {
         clipPath: 'inset(0% 0 0 0)',
-        duration: 0.9,
+        duration: 0.6,
         ease: 'power3.inOut',
         delay: i * 0.08
       });
@@ -151,14 +149,14 @@ ScrollTrigger.create({
 /* ── Section headlines scroll reveal ─────────────────── */
 gsap.utils.toArray('.section-headline, .field-headline, .reviews-headline').forEach(el => {
   gsap.from(el, {
-    y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
+    y: 40, opacity: 0, duration: 0.45, ease: 'power3.out',
     scrollTrigger: { trigger: el, start: 'top 85%' }
   });
 });
 
 gsap.utils.toArray('.field-desc').forEach(el => {
   gsap.from(el, {
-    y: 20, opacity: 0, duration: 0.7, ease: 'power2.out',
+    y: 20, opacity: 0, duration: 0.45, ease: 'power2.out',
     scrollTrigger: { trigger: el, start: 'top 85%' }
   });
 });

@@ -52,7 +52,7 @@ function initHeader() {
 
 /* Products Hero Animation */
 function playProductsHeroIn() {
-  gsap.to('#productsEyebrow', { opacity: 1, duration: 0.6, ease: 'power2.out', delay: 0.2 });
+  gsap.to('#productsEyebrow', { opacity: 1, duration: 0.5, ease: 'power2.out', delay: 0.2 });
 
   // Animate title words
   const titleWords = document.querySelectorAll('#productsTitle .word');
@@ -66,14 +66,14 @@ function playProductsHeroIn() {
     // Animate them in
     gsap.to(word.querySelectorAll('.char'), {
       y: 0,
-      duration: 0.8,
+      duration: 0.5,
       ease: 'power3.out',
       stagger: 0.03,
       delay: 0.4 + idx * 0.15
     });
   });
 
-  gsap.to('#productsSub', { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 1.0 });
+  gsap.to('#productsSub', { opacity: 1, duration: 0.5, ease: 'power2.out', delay: 1.0 });
 }
 
 /* Animate product cards on scroll */
@@ -88,7 +88,7 @@ function animateProductCards() {
         gsap.to(card, { 
           y: 0, 
           opacity: 1, 
-          duration: 0.7, 
+          duration: 0.33, 
           ease: 'power2.out',
           delay: i * 0.08
         });
@@ -119,7 +119,7 @@ function animateSpecBlocks() {
       trigger: heading,
       start: 'top 85%',
       onEnter: () => {
-        gsap.to(heading, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' });
+        gsap.to(heading, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' });
       }
     });
     gsap.set(heading, { y: 30, opacity: 0 });
