@@ -75,6 +75,8 @@ function playAboutHeroIn() {
   gsap.to('#aboutSub', { opacity: 1, duration: 0.7, ease: 'power2.out', delay: 1.0 });
 }
 
+
+
 /* Animate mission blocks on scroll */
 function animateMissionBlocks() {
   const label = document.querySelector('#mission-section .section-label');

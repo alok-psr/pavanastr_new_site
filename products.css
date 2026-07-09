@@ -17,7 +17,7 @@
 .products-hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d1a 50%, #1a0d00 100%);
+  background: linear-gradient(135deg, #794f0c 0%, #1a2d2d 30%, #1c5151 100%);
 }
 
 .products-hero-overlay {
@@ -303,6 +303,7 @@
 .cta-content {
   position: relative;
   z-index: 2;
+  padding:10px;
   text-align: center;
 }
 
