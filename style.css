@@ -133,6 +133,24 @@ nav a::after {
 nav a:hover { color: var(--cream); }
 nav a:hover::after { width: 100%; }
 
+/* When header uses the light scrolled background, keep hover text readable */
+header.scrolled nav a:hover {
+  color: var(--black);
+}
+header.scrolled nav a:hover::after {
+  background: var(--brass);
+  width: 100%;
+}
+
+/* Non-index pages: prefer black hover even when not scrolled */
+body.alt nav a:hover {
+  color: var(--black);
+}
+body.alt nav a:hover::after {
+  background: var(--brass);
+  width: 100%;
+}
+
 .nav-cta {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
@@ -852,8 +870,6 @@ footer {
   header {
     padding: 1rem 1.5rem;
     opacity: 1 !important;
-    /* backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(184, 150, 62, 0.25); */
   }
 
   .menu-toggle {
@@ -864,10 +880,9 @@ footer {
     position: fixed;
     top: 0;
     right: -100%;
-    /* width: min(300px, 80vw); */
     width: 100vw;
     height: 100vh;
-    display: flex !important;       /* override the 900px display:none */
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
