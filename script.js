@@ -5,27 +5,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menuToggle");
   const navMenu    = document.getElementById("navMenu");
   const menuOverlay = document.getElementById("menuOverlay");
+  let lockedScrollY = 0;
 
   if (!menuToggle || !navMenu || !menuOverlay) return;
 
+  const setMenuOpen = (isOpen) => {
+    menuToggle.classList.toggle("active", isOpen);
+    navMenu.classList.toggle("active", isOpen);
+    menuOverlay.classList.toggle("active", isOpen);
+    document.body.classList.toggle("menu-open", isOpen);
+
+    if (isOpen) {
+      lockedScrollY = window.scrollY;
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+    } else {
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      window.scrollTo(0, lockedScrollY);
+    }
+  };
+
   menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    navMenu.classList.toggle("active");
-    menuOverlay.classList.toggle("active");
+    setMenuOpen(!navMenu.classList.contains("active"));
   });
 
   menuOverlay.addEventListener("click", () => {
-    menuToggle.classList.remove("active");
-    navMenu.classList.remove("active");
-    menuOverlay.classList.remove("active");
+    setMenuOpen(false);
   });
 
   navMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      menuToggle.classList.remove("active");
-      navMenu.classList.remove("active");
-      menuOverlay.classList.remove("active");
+      setMenuOpen(false);
     });
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+    }
   });
 });
 

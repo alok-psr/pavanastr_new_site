@@ -13,28 +13,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menuToggle");
   const navMenu    = document.getElementById("navMenu");
   const menuOverlay = document.getElementById("menuOverlay");
+  let lockedScrollY = 0;
 
   if (!menuToggle || !navMenu || !menuOverlay) return;
 
+  const setMenuOpen = (isOpen) => {
+    menuToggle.classList.toggle("active", isOpen);
+    navMenu.classList.toggle("active", isOpen);
+    menuOverlay.classList.toggle("active", isOpen);
+    document.body.classList.toggle("menu-open", isOpen);
+
+    if (isOpen) {
+      lockedScrollY = window.scrollY;
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+    } else {
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      window.scrollTo(0, lockedScrollY);
+    }
+  };
+
   menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    navMenu.classList.toggle("active");
-    menuOverlay.classList.toggle("active");
+    setMenuOpen(!navMenu.classList.contains("active"));
   });
 
   menuOverlay.addEventListener("click", () => {
-    menuToggle.classList.remove("active");
-    navMenu.classList.remove("active");
-    menuOverlay.classList.remove("active");
+    setMenuOpen(false);
   });
 
   /* Close drawer when a nav link is clicked (mobile UX) */
   navMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      menuToggle.classList.remove("active");
-      navMenu.classList.remove("active");
-      menuOverlay.classList.remove("active");
+      setMenuOpen(false);
     });
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+    }
   });
 });
 
@@ -163,7 +183,8 @@ function animateFormFields() {
       gsap.to(submitBtn, { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out', delay: 0.4 });
     }
   });
-  gsap.set(submitBtn, { y: 20, opacity: 0 });
+  // Ensure submit button is visible by default (not hidden before scroll)
+  gsap.set(submitBtn, { y: 0, opacity: 1 });
 }
 
 /* Animate map section */
@@ -197,41 +218,76 @@ function initFormHandler() {
     submitBtn.innerHTML = '<span class="btn-arrow">⋯</span>';
     
     try {
-      // Simulate form submission (replace with your actual endpoint)
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Success animation
+      // Build mailto link with form data and open user's mail client
+      const formData = new FormData(form);
+      const name = formData.get('name') || '';
+      const email = formData.get('email') || '';
+      const phone = formData.get('phone') || '';
+      const subj = formData.get('subject') || 'Contact Form Submission';
+      const message = formData.get('message') || '';
+
+      const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
+      const mailto = `mailto:dummy@mail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+      console.log('Attempting to open mailto link:', mailto);
+      // Try to open the user's default mail client. Use multiple fallbacks.
+      let opened = null;
+      try {
+        opened = window.open(mailto);
+      } catch (e) {
+        opened = null;
+      }
+
+      if (!opened) {
+        // Fallback: create a temporary anchor and click it
+        try {
+          const a = document.createElement('a');
+          a.href = mailto;
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          opened = true;
+        } catch (e) {
+          opened = null;
+        }
+      }
+
+      // If we still couldn't launch an email client, copy the content to clipboard and inform the user
+      if (!opened) {
+        try {
+          const clipboardText = `To: dummy@mail.com\nSubject: ${subj}\n\n${body}`;
+          await navigator.clipboard.writeText(clipboardText);
+          alert('Could not open your mail client. The message content was copied to your clipboard. Paste it into an email to dummy@mail.com and send.');
+        } catch (e) {
+          alert('Could not open your mail client. Please send an email to dummy@mail.com with your message:\n\n' + body);
+        }
+      }
+
+      // Provide a quick success feedback (non-blocking)
       gsap.to(submitBtn, {
         scale: 0.95,
         duration: 0.2,
         ease: 'back.inOut',
         onComplete: () => {
-          gsap.to(submitBtn, {
-            scale: 1,
-            duration: 0.2,
-            ease: 'back.inOut'
-          });
+          gsap.to(submitBtn, { scale: 1, duration: 0.2, ease: 'back.inOut' });
         }
       });
 
-      submitBtn.innerHTML = '✓ Message Sent!';
+      submitBtn.innerHTML = '✓ Opened Mail Client';
       submitBtn.style.background = 'rgba(184, 150, 62, 0.7)';
-      
-      // Reset form
+
+      // Reset form after a short delay
       setTimeout(() => {
         form.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
         submitBtn.style.background = 'var(--brass)';
       }, 2000);
-      
+
     } catch (error) {
       submitBtn.innerHTML = '✗ Error - Try Again';
       submitBtn.disabled = false;
-      
-      setTimeout(() => {
-        submitBtn.innerHTML = originalText;
-      }, 2000);
+      setTimeout(() => { submitBtn.innerHTML = originalText; }, 2000);
     }
   });
 

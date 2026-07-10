@@ -20,6 +20,14 @@ body {
 
 }
 
+body.menu-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
 /* INTRO LOADER */
 #intro {
   position: fixed;
@@ -119,6 +127,23 @@ nav {
   gap: 2.5rem;
 }
 
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 104;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 nav a {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
@@ -139,7 +164,7 @@ nav a::after {
   transition: width 0.3s ease;
 }
 
-nav a:hover { color: var(--cream); }
+nav a:hover { color: var(--black); }
 nav a:hover::after { width: 100%; }
 
 /* Non-index pages: prefer black hover even when not scrolled */
@@ -238,8 +263,10 @@ body.alt nav a:hover::after {
 .hero-video-wrap video {
   width: 100%; height: 100%;
   object-fit: cover;
+
   opacity: 0.45;
 }
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -893,6 +920,9 @@ footer {
     background: rgba(15, 15, 15, 0.96);
     transition: right 0.4s cubic-bezier(.77, 0, .18, 1);
     z-index: 105;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   nav.active {
@@ -992,4 +1022,3 @@ footer {
   /* On scrolled header (light frosted bg), logo should be dark — no filter needed.
      If your logo is light/white on transparent, add: filter: brightness(0); */
 }
-
